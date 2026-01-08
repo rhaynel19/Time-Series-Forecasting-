@@ -1,83 +1,58 @@
-📈 Time Series Forecasting Project
-📌 Project Overview
+# Time Series Forecasting / Predicción de Series de Tiempo
 
-This project focuses on time series analysis and forecasting to predict future values based on historical data. The main goal is to identify patterns such as trend, seasonality, and variability, and use them to generate reliable forecasts that support data-driven decision-making.
+This repository contains a complete pipeline for time series forecasting using historical sales data.  
+It includes data cleaning, exploratory analysis, feature engineering, model training, evaluation, and deployment-ready artifacts.
 
-The project is designed with a practical business perspective, applicable to use cases such as sales forecasting, demand planning, financial projections, and performance analysis.
+## 📁 Project Structure
+- `cleaning_data.ipynb`: Preprocessing and cleaning of raw sales data.
+- `eda_data.ipynb`: Exploratory Data Analysis to identify trends and seasonality.
+- `features_data.ipynb`: Feature engineering for model input optimization.
+- `understanding_data.ipynb`: Data interpretation and structure overview.
+- `split_train_randomforest_logreg_tuning_evaluacion.ipynb`: Model training, hyperparameter tuning, and evaluation.
+- `test_model.ipynb`: Final model testing and performance validation.
+- `linear_regression_model.pkl` / `random_forest_model.pkl`: Serialized models for deployment.
+- `sales_data_cleaned.csv`, `sales_data_features2.csv`, `sales_data_sample.csv`: Processed datasets used throughout the pipeline.
 
-🎯 Objectives
+## 📊 Models Used
+- Linear Regression
+- Random Forest Regressor
 
-Analyze historical time series data
 
-Identify trends and seasonal patterns
+## 🎯 Goals
+- Predict future sales based on historical patterns.
+- Compare model performance using metrics like RMSE, MAE, and R².
+- Build a scalable and interpretable forecasting workflow.
 
-Build forecasting models to predict future values
+-------------------spanish--------------------
 
-Evaluate model performance
+Este repositorio contiene una pipeline completa para la predicción de series de tiempo usando datos históricos de ventas.  
+Incluye limpieza de datos, análisis exploratorio, creación de variables, entrenamiento de modelos, evaluación y artefactos listos para producción.
 
-Generate insights useful for business decisions
+## 📁 Estructura del Proyecto
+- `cleaning_data.ipynb`: Limpieza y preprocesamiento de datos.
+- `eda_data.ipynb`: Análisis exploratorio para detectar patrones y estacionalidad.
+- `features_data.ipynb`: Ingeniería de características para mejorar el rendimiento del modelo.
+- `understanding_data.ipynb`: Interpretación y estructura de los datos.
+- `split_train_randomforest_logreg_tuning_evaluacion.ipynb`: Entrenamiento, ajuste de hiperparámetros y evaluación.
+- `test_model.ipynb`: Validación final del modelo.
+- `linear_regression_model.pkl` / `random_forest_model.pkl`: Modelos serializados para despliegue.
+- `sales_data_cleaned.csv`, `sales_data_features2.csv`, `sales_data_sample.csv`: Conjuntos de datos procesados.
 
-🛠️ Tools & Technologies
+## 📊 Modelos Utilizados
+- Regresión Lineal
+- Bosques Aleatorios (Random Forest)
+- (Extensión opcional: Prophet, ARIMA, XGBoost)
 
-Python
+## 🎯 Objetivos
+- Predecir ventas futuras a partir de patrones históricos.
+- Comparar el rendimiento de modelos usando métricas como RMSE, MAE y R².
+- Construir un flujo de trabajo escalable e interpretable para forecasting.
 
-Pandas
+---
 
-NumPy
+📌 *Ideal para portafolios profesionales, entrevistas técnicas y proyectos educativos en ciencia de datos.*
 
-Matplotlib
 
-Jupyter Notebook
-
-Statistical analysis
-
-Time series forecasting techniques
-
-🔍 Methodology
-
-Data Collection
-Import and review historical time series data.
-
-Data Cleaning & Preparation
-Handle missing values, format dates, and structure the dataset for analysis.
-
-Exploratory Data Analysis (EDA)
-Visualize trends, seasonality, and fluctuations over time.
-
-Modeling & Forecasting
-Apply time series forecasting techniques to predict future values.
-
-Evaluation
-Assess model performance using error metrics and visual comparisons.
-
-Insights & Interpretation
-Translate results into clear insights for decision-making.
-
-📊 Results
-
-The forecasting models provide estimates of future values based on historical patterns. The results highlight how trends and seasonality influence predictions and demonstrate how time series analysis can be used as a strategic tool in business and financial contexts.
-
-📈 Use Cases
-
-Sales forecasting
-
-Financial planning
-
-Demand forecasting
-
-Performance monitoring
-
-Business trend analysis
-
-🚀 How to Run the Project
-
-Clone this repository
-
-Open the Jupyter Notebook
-
-Install required libraries
-
-Run the notebook cells step by step
 
 👤 Author
 
