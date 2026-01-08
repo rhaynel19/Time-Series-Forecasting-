@@ -1,65 +1,152 @@
-# Time Series Forecasting / Predicción de Series de Tiempo
+Time Series Sales Forecasting — Data Science Portfolio Project
+Project Overview
 
-This repository contains a complete pipeline for time series forecasting using historical sales data.  
-It includes data cleaning, exploratory analysis, feature engineering, model training, evaluation, and deployment-ready artifacts.
+This project focuses on time series forecasting to predict future sales values using historical data and Machine Learning models.
+The workflow follows an end-to-end data science pipeline, including data understanding, cleaning, feature engineering, model training, evaluation, and hyperparameter tuning.
 
-## 📁 Project Structure
-- `cleaning_data.ipynb`: Preprocessing and cleaning of raw sales data.
-- `eda_data.ipynb`: Exploratory Data Analysis to identify trends and seasonality.
-- `features_data.ipynb`: Feature engineering for model input optimization.
-- `understanding_data.ipynb`: Data interpretation and structure overview.
-- `split_train_randomforest_logreg_tuning_evaluacion.ipynb`: Model training, hyperparameter tuning, and evaluation.
-- `test_model.ipynb`: Final model testing and performance validation.
-- `linear_regression_model.pkl` / `random_forest_model.pkl`: Serialized models for deployment.
-- `sales_data_cleaned.csv`, `sales_data_features2.csv`, `sales_data_sample.csv`: Processed datasets used throughout the pipeline.
+The goal is to compare baseline regression models with ensemble-based approaches and select the most accurate model for forecasting.
 
-## 📊 Models Used
-- Linear Regression
-- Random Forest Regressor
+🎯 Project Objectives
 
+Analyze historical sales data and temporal patterns
 
-## 🎯 Goals
-- Predict future sales based on historical patterns.
-- Compare model performance using metrics like RMSE, MAE, and R².
-- Build a scalable and interpretable forecasting workflow.
+Clean and prepare time series data for modeling
 
--------------------spanish--------------------
+Engineer relevant features for forecasting
 
-Este repositorio contiene una pipeline completa para la predicción de series de tiempo usando datos históricos de ventas.  
-Incluye limpieza de datos, análisis exploratorio, creación de variables, entrenamiento de modelos, evaluación y artefactos listos para producción.
+Train and evaluate multiple regression models
 
-## 📁 Estructura del Proyecto
-- `cleaning_data.ipynb`: Limpieza y preprocesamiento de datos.
-- `eda_data.ipynb`: Análisis exploratorio para detectar patrones y estacionalidad.
-- `features_data.ipynb`: Ingeniería de características para mejorar el rendimiento del modelo.
-- `understanding_data.ipynb`: Interpretación y estructura de los datos.
-- `split_train_randomforest_logreg_tuning_evaluacion.ipynb`: Entrenamiento, ajuste de hiperparámetros y evaluación.
-- `test_model.ipynb`: Validación final del modelo.
-- `linear_regression_model.pkl` / `random_forest_model.pkl`: Modelos serializados para despliegue.
-- `sales_data_cleaned.csv`, `sales_data_features2.csv`, `sales_data_sample.csv`: Conjuntos de datos procesados.
+Optimize model performance using hyperparameter tuning
 
-## 📊 Modelos Utilizados
-- Regresión Lineal
-- Bosques Aleatorios (Random Forest)
-- (Extensión opcional: Prophet, ARIMA, XGBoost)
+Select and persist the best-performing model
 
-## 🎯 Objetivos
-- Predecir ventas futuras a partir de patrones históricos.
-- Comparar el rendimiento de modelos usando métricas como RMSE, MAE y R².
-- Construir un flujo de trabajo escalable e interpretable para forecasting.
+🧠 Models Implemented
 
----
+Linear Regression
 
-📌 *Ideal para portafolios profesionales, entrevistas técnicas y proyectos educativos en ciencia de datos.*
+Random Forest Regressor
 
+📊 Evaluation Metrics
 
+Models were evaluated using standard regression metrics:
 
-👤 Author
+MAE (Mean Absolute Error)
 
-Rhayner Trinidad
-Data Analyst | Business administration
-GitHub: https://github.com/rhaynel19
+RMSE (Root Mean Squared Error)
 
-📄 License
+R² Score
 
-This project is for educational and portfolio purposes.
+📈 Model Performance
+🔹 Random Forest Regressor (Test Set)
+Metric	Value
+MAE	0.0147
+RMSE	0.0325
+R²	0.9990
+
+🔹 Linear Regression (Test Set)
+Metric	Value
+MAE	0.1231
+RMSE	0.1725
+R²	0.9721
+
+🔹 Random Forest Regressor (Training Set)
+Metric	Value
+MAE	0.0059
+RMSE	0.0201
+R²	0.9996
+
+🧪 Model Comparison Summary
+Model	MAE	RMSE	R²
+Random Forest Regressor	0.0147	0.0325	0.9990
+Linear Regression	0.1231	0.1725	0.9721
+
+➡️ Best model: Random Forest Regressor
+
+⚙️ Hyperparameter Tuning
+
+GridSearchCV
+
+3-fold cross-validation
+
+36 parameter combinations
+
+108 total fits
+
+Best Hyperparameters
+{
+  'max_depth': None,
+  'min_samples_split': 2,
+  'n_estimators': 300
+}
+
+📁 Project Structure (ACTUAL)
+time-series-forecasting/
+│── .venv/                          # Virtual environment (ignored in Git)
+│── understanding_data.ipynb        # Data understanding and initial analysis
+│── cleaning_data.ipynb             # Data cleaning and preprocessing
+│── eda_data.ipynb                  # Exploratory Data Analysis
+│── features_data.ipynb             # Feature engineering
+│── split_train_randomforest_logreg_tuning_eval.ipynb
+│                                   # Train-test split, modeling, tuning, evaluation
+│── test_model.ipynb                # Model testing and validation
+│── sales_data_sample.csv           # Raw sample dataset
+│── sales_data_cleaned.csv           # Cleaned dataset
+│── sales_data_features2.csv         # Feature-engineered dataset
+│── linear_regression_model.pkl      # Trained Linear Regression model
+│── random_forest_model.pkl          # Trained Random Forest model
+│── README.md                        # Project documentation
+
+📦 Saved Models
+
+The trained models are stored for reuse:
+
+linear_regression_model.pkl
+
+random_forest_model.pkl
+
+Example: Load and Predict
+import joblib
+import pandas as pd
+
+model = joblib.load("random_forest_model.pkl")
+
+sample_data = pd.DataFrame({
+    "feature_1": [100],
+    "feature_2": [30],
+    "feature_3": [7]
+})
+
+prediction = model.predict(sample_data)
+print("Forecast:", prediction)
+
+📌 Key Insights
+
+Random Forest captures non-linear temporal patterns more effectively
+
+Linear Regression serves as a strong baseline but underperforms in complex trends
+
+Very low MAE and RMSE indicate minimal forecasting error
+
+Slight difference between training and test scores suggests good generalization
+
+🚀 Future Improvements
+
+Add lag and rolling window features
+
+Use time-aware validation (TimeSeriesSplit)
+
+Compare with ARIMA, SARIMA, and Prophet
+
+Deploy the model via API or dashboard
+
+📝 Conclusion
+
+This project demonstrates how Machine Learning models, particularly ensemble methods, can achieve highly accurate results in time series forecasting tasks.
+The Random Forest Regressor proved to be the most reliable model for predicting sales trends based on historical data.
+
+👨‍💻 Author
+
+Fraimel (Rhayner)
+Data Analyst | Data Scientist | Machine Learning Enthusiast
+
+📬 Open to freelance projects, collaborations, and professional opportunities.
